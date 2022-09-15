@@ -1,4 +1,11 @@
-const Suppliers = [{id : 1, Name:"FedEx" , Days:["Sunday",],DeliveryPrice: 20},{
-                  id : 2, Name:"UPS" , Days:["Monday",],DeliveryPrice: 30},
-                  { id : 3, Name:"Amazon" , Days:["Sunday","Thursday"],DeliveryPrice: 15}
+const Suppliers = [{ Name:"FedEx" , Days:["Sunday","Wednesday"],DeliveryPrice: 20},{
+                   Name:"UPS" , Days:["Monday","Wednesday"],DeliveryPrice: 30},
+                  {  Name:"Amazon" , Days:["Sunday","Thursday","Friday"],DeliveryPrice: 15}
                                                               ]
+
+exports.GetSupplierByName=(name)=>{
+    console.log(name);
+   const result = Suppliers.find(s =>s.Name === name);
+   console.log(result);
+   return result;
+}
