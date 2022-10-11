@@ -9,4 +9,6 @@ function PriceFilter(Min,Max){
   console.log(result);
   return result;
 }
+
+
 module.exports = { getShop ,PriceFilter};
