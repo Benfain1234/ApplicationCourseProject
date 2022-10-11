@@ -1,15 +1,15 @@
 let Products = [
-    { id : 1, Name : "", Type: "shirt",Company : "h&m" , Price: 70.99, Supplier: "", ImgSrc: ""},
-    { id : 2, Name : "", Type: "hoodies",Company : "zara" , Price: 189.99, Supplier: "" , ImgSrc: ""},
-    { id : 3, Name : "", Type: "dress",Company : "nike" , Price: 47.86, Supplier: "", ImgSrc: "" },
-    { id : 4, Name : "", Type: "shorts",Company : "adidas" , Price: 79.99, Supplier: "" , ImgSrc: ""},
-    { id : 5, Name : "", Type: "jeans",Company : "pull and bear" , Price: 56, Supplier: "" , ImgSrc: ""},
-    { id : 6, Name : "", Type: "shoes",Company : "adidas" , Price: 85, Supplier: "", ImgSrc: "" },
-    { id : 7, Name : "", Type: "coat",Company : "pull and bear" , Price: 65.99, Supplier: "", ImgSrc: "" },
-    { id : 8, Name : "", Type: "suit",Company : "h&m" , Price: 299.99, Supplier: "", ImgSrc: "" },
-    { id : 9, Name : "", Type: "swimsuit",Company : "nike" , Price: 169.99, Supplier: "", ImgSrc: "" },
-    { id : 10, Name : "", Type: "coat",Company : "zara" , Price: 189.99, Supplier: "", ImgSrc: "" },
-    { id : 11, Name : "", Type: "shirt",Company : "adidas" , Price: 85.99, Supplier: "" , ImgSrc: ""}
+    { id : 1, Name : "", Type: "shirt",Company : "h&m" , Price: 70.99, Supplier: "FedEx", ImgSrc: ""},
+    { id : 2, Name : "", Type: "hoodies",Company : "zara" , Price: 189.99, Supplier: "Amazon" , ImgSrc: ""},
+    { id : 3, Name : "", Type: "dress",Company : "nike" , Price: 47.86, Supplier: "FedEx", ImgSrc: "" },
+    { id : 4, Name : "", Type: "shorts",Company : "adidas" , Price: 79.99, Supplier: "UPS" , ImgSrc: ""},
+    { id : 5, Name : "", Type: "jeans",Company : "pull and bear" , Price: 56, Supplier: "UPS" , ImgSrc: ""},
+    { id : 6, Name : "", Type: "shoes",Company : "adidas" , Price: 85, Supplier: "FedEx", ImgSrc: "" },
+    { id : 7, Name : "", Type: "coat",Company : "pull and bear" , Price: 65.99, Supplier: "Amazon", ImgSrc: "" },
+    { id : 8, Name : "", Type: "suit",Company : "h&m" , Price: 299.99, Supplier: "Amazon", ImgSrc: "" },
+    { id : 9, Name : "", Type: "swimsuit",Company : "nike" , Price: 169.99, Supplier: "FedEx", ImgSrc: "" },
+    { id : 10, Name : "", Type: "coat",Company : "zara" , Price: 189.99, Supplier: "Amazon", ImgSrc: "" },
+    { id : 11, Name : "", Type: "shirt",Company : "adidas" , Price: 85.99, Supplier: "UPS" , ImgSrc: ""}
 ];
 
 exports.GetProducts =()=>{
