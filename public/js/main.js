@@ -3,9 +3,14 @@
 
 (function ($) {
   "use strict";
-
+  var filter = {
+    pricearray: [],
+    colorarray: [],
+    sizearray: []
+  };
   // Dropdown on mouse hover
   $(document).ready(function () {
+
     function toggleNavbarMethod() {
       if ($(window).width() > 992) {
         $(".navbar .dropdown")
@@ -103,20 +108,59 @@
   });
 
   $("#price-1").click(()=>{
-    console.log("click")
-    $.get( "/pricefilter1");
+   let index = filter.pricearray.findIndex((number)=> number === 100)
+   if(index===-1){
+     filter.pricearray.push(100);
+   }else{
+     filter.pricearray.splice(index,index+1);
+   }
+
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1', {filter})
   })
+
   $("#price-2").click(()=>{
-   $.get("/pricefilter2")
+    let index = filter.pricearray.findIndex((number)=> number === 200)
+    if(index===-1){
+      filter.pricearray.push(200);
+    }else{
+      filter.pricearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter2',{filter})
   })
+
   $("#price-3").click(()=>{
-    $.get("/pricefilter3")
+    let index = filter.pricearray.findIndex((number)=> number === 300)
+    if(index===-1){
+      filter.pricearray.push(300);
+    }else{
+      filter.pricearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter3',{filter})
   })
+
   $("#price-4").click(()=>{
-    $.get("/pricefilter4")
+    let index = filter.pricearray.findIndex((number)=> number === 400)
+    if(index===-1){
+      filter.pricearray.push(400);
+    }else{
+      filter.pricearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter4',{filter})
   })
+
   $("#price-5").click(()=>{
-    $.get("/pricefilter5")
+    let index = filter.pricearray.findIndex((number)=> number === 500)
+    if(index===-1){
+      filter.pricearray.push(500);
+    }else{
+      filter.pricearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter5',{filter})
   })
 
 
