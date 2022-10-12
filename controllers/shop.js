@@ -6,32 +6,13 @@ function shop(req, res) {
   });
 }
 function PriceFilter1(req, res) {
-  console.log(req.body);
+
   res.render("products.ejs", {
-    products: shopModel.PriceFilter(0,100),
+    products: shopModel.Filter(req.body.filter),
   });
 }
 
 
-function PriceFilter2(req, res) {
-  res.render("products.ejs", {
-    products: shopModel.PriceFilter(100,200),
-  });
-}
-function PriceFilter3(req, res) {
-  res.render("products.ejs", {
-    products: shopModel.PriceFilter(200,300),
-  });
-}
-function PriceFilter4(req, res) {
-  res.render("products.ejs", {
-    products: shopModel.PriceFilter(300,400),
-  });
-}
-function PriceFilter5(req, res) {
-  res.render("products.ejs", {
-    products: shopModel.PriceFilter(400,500),
-  });
-}
 
-module.exports = { shop ,PriceFilter1,PriceFilter2,PriceFilter3,PriceFilter4,PriceFilter5};
+
+module.exports = { shop ,PriceFilter1};
