@@ -127,7 +127,7 @@
       filter.pricearray.splice(index,index+1);
     }
     console.log(filter);
-    $("#filter").load('http://localhost:8080/pricefilter2',{filter})
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
   })
 
   $("#price-3").click(()=>{
@@ -138,7 +138,7 @@
       filter.pricearray.splice(index,index+1);
     }
     console.log(filter);
-    $("#filter").load('http://localhost:8080/pricefilter3',{filter})
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
   })
 
   $("#price-4").click(()=>{
@@ -149,7 +149,7 @@
       filter.pricearray.splice(index,index+1);
     }
     console.log(filter);
-    $("#filter").load('http://localhost:8080/pricefilter4',{filter})
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
   })
 
   $("#price-5").click(()=>{
@@ -160,8 +160,115 @@
       filter.pricearray.splice(index,index+1);
     }
     console.log(filter);
-    $("#filter").load('http://localhost:8080/pricefilter5',{filter})
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
   })
 
+  $("#color-1").click(()=>{
+    let index = filter.colorarray.findIndex((color)=> color === "black")
+    if(index===-1){
+      filter.colorarray.push("black");
+    }else{
+      filter.colorarray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+  $("#color-2").click(()=>{
+    let index = filter.colorarray.findIndex((color)=> color === "white")
+    if(index===-1){
+      filter.colorarray.push("white");
+    }else{
+      filter.colorarray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+  $("#color-3").click(()=>{
+    let index = filter.colorarray.findIndex((color)=> color === "red")
+    if(index===-1){
+      filter.colorarray.push("red");
+    }else{
+      filter.colorarray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
 
+  $("#color-4").click(()=>{
+    let index = filter.colorarray.findIndex((color)=> color === "blue")
+    if(index===-1){
+      filter.colorarray.push("blue");
+    }else{
+      filter.colorarray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#color-5").click(()=>{
+    let index = filter.colorarray.findIndex((color)=> color === "green")
+    if(index===-1){
+      filter.colorarray.push("green");
+    }else{
+      filter.colorarray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#size-1").click(()=>{
+    let index = filter.sizearray.findIndex((color)=> color === "XS")
+    if(index===-1){
+      filter.sizearray.push("XS");
+    }else{
+      filter.sizearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#size-2").click(()=>{
+    let index = filter.sizearray.findIndex((color)=> color === "S")
+    if(index===-1){
+      filter.sizearray.push("S");
+    }else{
+      filter.sizearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#size-3").click(()=>{
+    let index = filter.sizearray.findIndex((color)=> color === "M")
+    if(index===-1){
+      filter.sizearray.push("M");
+    }else{
+      filter.sizearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#size-4").click(()=>{
+    let index = filter.sizearray.findIndex((color)=> color === "L")
+    if(index===-1){
+      filter.sizearray.push("L");
+    }else{
+      filter.sizearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
+
+  $("#size-5").click(()=>{
+
+    let index = filter.sizearray.findIndex((color)=> color === "XL")
+    if(index===-1){
+      filter.sizearray.push("XL");
+    }else{
+      filter.sizearray.splice(index,index+1);
+    }
+    console.log(filter);
+    $("#filter").load('http://localhost:8080/pricefilter1',{filter})
+  })
 })(jQuery);
