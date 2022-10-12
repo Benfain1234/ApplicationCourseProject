@@ -186,12 +186,7 @@
                 <div class="border-bottom mb-4 pb-4">
                     <h5 class="font-weight-semi-bold mb-4 Pricefilter">Filter by price</h5>
                     <form>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3 AllPrice">
-                            <input type="checkbox" class="custom-control-input" checked id="price-all">
-                            <label class="custom-control-label" for="price-all">All Price</label>
 
-                        </div>
                         <div
                             class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3 PriceFilter1">
                             <input type="checkbox" class="custom-control-input" id="price-1">
@@ -229,12 +224,7 @@
                 <div class="border-bottom mb-4 pb-4">
                     <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
                     <form>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="color-all">
-                            <label class="custom-control-label" for="price-all">All Color</label>
 
-                        </div>
                         <div
                             class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-1">
@@ -272,12 +262,7 @@
                 <div class="mb-5">
                     <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
                     <form>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="size-all">
-                            <label class="custom-control-label" for="size-all">All Size</label>
 
-                        </div>
                         <div
                             class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="size-1">
@@ -342,8 +327,11 @@
                             </div>
                         </div>
                     </div>
+
+                   <div id="filter">
                     <% for(var i=0; i < products.length;i++){%>
-                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1 ">
                             <div class="card product-item border-0 mb-4">
                                 <div
                                     class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
@@ -357,7 +345,12 @@
                                         <h6>$<%= products[i].price %>
                                         </h6>
                                         <h6 class="text-muted ml-2"><del>$<%= products[i].price %></del></h6>
+                                        <h6><%= products[i].color%>
+                                        </h6>
+
                                     </div>
+                                    <h6><%= products[i].size%>
+                                    </h6>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <a href="" class="btn btn-sm text-dark p-0"><i
@@ -367,7 +360,9 @@
                                 </div>
                             </div>
                         </div>
+
                         <%}%>
+                   <div/>
                             <!-- Shop Product End -->
                 </div>
             </div>
