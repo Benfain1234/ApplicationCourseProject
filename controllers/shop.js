@@ -12,7 +12,27 @@ function PriceFilter1(req, res) {
   });
 }
 
+function SearchProduct(req,res){
+  res.render("products.ejs", {
+    products: shopModel.SearchProduct(req.body.filter,req.body.value),
+  });
+}
 
+function SortByPrice(req,res){
+  res.render("products.ejs", {
+    products: shopModel.SortByPrice(req.body.filter),
+  });
+}
 
+function SortBySize(req,res){
+  res.render("products.ejs", {
+    products: shopModel.SortBySize(req.body.filter),
+  });
+}
+function SortByColor(req,res){
+  res.render("products.ejs", {
+    products: shopModel.SortByColor(req.body.filter),
+  });
+}
 
-module.exports = { shop ,PriceFilter1};
+module.exports = { shop ,PriceFilter1, SearchProduct,SortByPrice,SortBySize,SortByColor};
