@@ -271,4 +271,67 @@
     console.log(filter);
     $("#filter").load('http://localhost:8080/pricefilter1',{filter})
   })
+
+  $(".search_product_button2").click(()=>{
+    const value =  $(".input2").val();
+    const filter2 = filter;
+    if($("#price-1")[0].checked  === true) {
+      $("#price-1").click();
+    }
+    if($("#price-2")[0].checked  === true) {
+      $("#price-2").click();
+    }
+    if($("#price-3")[0].checked  === true) {
+      $("#price-3").click();
+    }
+    if($("#price-4")[0].checked  === true) {
+      $("#price-4").click();
+    }
+    if($("#price-5")[0].checked  === true) {
+      $("#price-5").click();
+    }
+    if($("#color-1")[0].checked  === true) {
+      $("#color-1").click();
+    }
+    if($("#color-2")[0].checked  === true) {
+      $("#color-2").click();
+    }
+    if($("#color-3")[0].checked  === true) {
+      $("#color-3").click();
+    }
+    if($("#color-4")[0].checked  === true) {
+      $("#color-4").click();
+    }
+    if($("#color-5")[0].checked  === true) {
+      $("#color-5").click();
+    }
+    if($("#size-1")[0].checked  === true) {
+      $("#size-1").click();
+    }
+    if($("#size-2")[0].checked  === true) {
+      $("#size-2").click();
+    }
+    if($("#size-3")[0].checked  === true) {
+      $("#size-3").click();
+    }
+    if($("#size-4")[0].checked  === true) {
+      $("#size-4").click();
+    }
+    if($("#size-5")[0].checked  === true) {
+      $("#size-5").click();
+    }
+    $("#filter").load('http://localhost:8080/searchproduct',{filter2,value})
+
+
+  })
+
+  $(".dropdown-menu-right a:nth-of-type(1)").click(()=>{
+    $("#filter").load('http://localhost:8080/sortbyprice',{filter})
+  })
+  $(".dropdown-menu-right a:nth-of-type(2)").click(()=>{
+    $("#filter").load('http://localhost:8080/sortbysize',{filter})
+  })
+  $(".dropdown-menu-right a:nth-of-type(3)").click(()=>{
+    $("#filter").load('http://localhost:8080/sortbycolor',{filter})
+  })
 })(jQuery);
