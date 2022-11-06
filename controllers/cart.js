@@ -1,19 +1,38 @@
 const cartModel = require("../models/cart");
 
-function cart(req, res) {
+function Cart(req, res) {
   res.render("cart.ejs", {
     cart: cartModel.getCart(),
     total: cartModel.getTotal(),
+    amount: cartModel.totalProds(),
   });
 }
-function addProd(req, res) {
+function AddProd(req, res) {
   cartModel.addProduct(req.query.id);
-  res.redirect("/");
+  var totalProd = cartModel.totalProds();
+  res.json(totalProd);
 }
 
-function removeProd(req, res) {
+function RemoveProd(req, res) {
   cartModel.removeProduct(req.query.id);
-  res.redirect("/cart");
+  var totalProd = cartModel.getCart();
+  res.json(totalProd);
 }
 
-module.exports = { cart, addProd, removeProd };
+function DecreaseProd(req, res) {
+  cartModel.decreaseProduct(req.query.id);
+  var totalProd = cartModel.getCart();
+  res.json(totalProd);
+}
+
+function EmptyCart(req,res){
+   console.log(cartModel.getCart().length);
+  if (cartModel.getCart().length===0){res.json(false)}
+  cartModel.EmptyCart();
+  if (cartModel.getCart().length===0){
+    res.json(true)
+  }else {res.json(false)}
+}
+
+
+module.exports = { Cart, AddProd, RemoveProd, DecreaseProd,EmptyCart };
