@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const { application } = require("express");
 const express = require("express");
 const productsController = require("../controllers/products");
@@ -24,3 +25,13 @@ router.get("/", productsController.index);
 // });
 
 module.exports = router;
+=======
+
+const express = require("express");
+const productsController = require("../controllers/products");
+const router = express.Router();
+
+router.get("/", productsController.Index, productsController.SessionFunc);
+
+module.exports = router;
+>>>>>>> Stashed changes
