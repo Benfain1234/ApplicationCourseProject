@@ -26,6 +26,7 @@ function LoginToUser(req, res) {
             products: data,
             amount: cart.totalProds(),
           });
+          
         });
       } else if (!admin) {
         Users.findOne({

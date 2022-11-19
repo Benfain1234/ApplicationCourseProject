@@ -1,19 +1,19 @@
 $(() => {
-  $("#filter").on("click", "#addToCart", function (e) {
-    const id = e.currentTarget.parentElement.parentElement.id;
-    $.ajax({
-      url: `http://localhost:8080/addProduct?id=${id}`,
-    }).done(function (obj) {
-      $("#cartVal").html(`${obj}`);
-      for (let index = 0; index < obj.length; index++) {
-        const element = obj[index];
-        let template = $("#cart_template").html();
-        for (const key in element) {
-          template = template.replace("{" + key + "}", element[key]);
-        }
-      }
-    });
-  });
+  // $("#filter").on("click", "#addToCart", function (e) {
+  //   const id = e.currentTarget.parentElement.parentElement.id;
+  //   $.ajax({
+  //     url: `http://localhost:8080/addProduct?id=${id}`,
+  //   }).done(function (obj) {
+  //     $("#cartVal").html(`${obj}`);
+  //     for (let index = 0; index < obj.length; index++) {
+  //       const element = obj[index];
+  //       let template = $("#cart_template").html();
+  //       for (const key in element) {
+  //         template = template.replace("{" + key + "}", element[key]);
+  //       }
+  //     }
+  //   });
+  // });
 
   $("#sub").click(function (e) {
     const v = document.getElementById("forms").elements;

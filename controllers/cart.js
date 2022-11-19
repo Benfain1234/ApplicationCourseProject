@@ -6,6 +6,7 @@ function Cart(req, res) {
     total: cartModel.getTotal(),
     amount: cartModel.totalProds(),
   });
+
 }
 function AddProd(req, res) {
   cartModel.addProduct(req.query.id);
