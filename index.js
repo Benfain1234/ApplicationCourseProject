@@ -29,7 +29,6 @@ app.use(
     extended: true,
   })
 );
-app.use(bodyParser.json());
 const session = require("express-session");
 app.use(
   session({

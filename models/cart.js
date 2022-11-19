@@ -34,6 +34,12 @@ function decreaseProduct(id) {
   }
 }
 
+function increaseProduct(id) {
+  var p = cart.find((c) => c.id == id);
+  if (p !== null) {
+    p.quantity = parseInt(p.quantity) + 1;
+  }
+}
 
 function removeProduct(id) {
   var p = cart.find((c) => c.id == id);
@@ -48,17 +54,12 @@ function getTotal() {
   return total;
 }
 
-function EmptyCart(){
-
-  cart.length = 0;
-
-}
 module.exports = {
   getCart,
   addProduct,
   removeProduct,
   decreaseProduct,
+  increaseProduct,
   getTotal,
   totalProds,
-  EmptyCart,
 };

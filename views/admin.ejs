@@ -142,7 +142,7 @@
                             </div>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn nav-link nav-item" data-bs-toggle="modal"
-                                data-bs-target="#registerModal">
+                                data-bs-target="#registerModal" id="newProd">
                                 Add new product
                             </button>
 
@@ -158,7 +158,7 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="/registerProduct" method="get" id="forms">
+                                            <form action="/registerProduct" method="get" id="regForms">
                                                 <label for="title"><b>Title</b></label><br>
                                                 <input type="text" name="title"><br>
                                                 <label for="desc"><b>Description</b></label><br>
@@ -175,7 +175,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save
+                                            <button type="submit" id="regProd" class="btn btn-primary">Save
                                                 changes</button>
                                         </div>
                                         </form>

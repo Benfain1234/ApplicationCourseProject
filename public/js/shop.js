@@ -1,19 +1,19 @@
 $(() => {
-  // $("#filter").on("click", "#addToCart", function (e) {
-  //   const id = e.currentTarget.parentElement.parentElement.id;
-  //   $.ajax({
-  //     url: `http://localhost:8080/addProduct?id=${id}`,
-  //   }).done(function (obj) {
-  //     $("#cartVal").html(`${obj}`);
-  //     for (let index = 0; index < obj.length; index++) {
-  //       const element = obj[index];
-  //       let template = $("#cart_template").html();
-  //       for (const key in element) {
-  //         template = template.replace("{" + key + "}", element[key]);
-  //       }
-  //     }
-  //   });
-  // });
+  $("#filter").on("click", "#addToCart", function (e) {
+    const id = e.currentTarget.parentElement.parentElement.id;
+    $.ajax({
+      url: `http://localhost:8080/addProduct?id=${id}`,
+    }).done(function (obj) {
+      $("#cartVal").html(`${obj}`);
+      for (let index = 0; index < obj.length; index++) {
+        const element = obj[index];
+        let template = $("#cart_template").html();
+        for (const key in element) {
+          template = template.replace("{" + key + "}", element[key]);
+        }
+      }
+    });
+  });
 
   $("#sub").click(function (e) {
     const v = document.getElementById("forms").elements;
@@ -39,9 +39,21 @@ $(() => {
     $.ajax({
       url: `http://localhost:8080/sortByPrice`,
     }).done(function (obj) {
+      var newObj = [];
+      const currElements = document.querySelectorAll("#price");
       $("#filter").html("");
-      for (let index = 0; index < obj.length; index++) {
-        const element = obj[index];
+      for (var i = 0; i < obj.length; i++) {
+        for (var j = 0; j < currElements.length; j++) {
+          currId = currElements[j].parentElement.parentElement.parentElement.id;
+          if (obj[i].id == currId) {
+            newObj.push(obj[i]);
+            continue;
+          }
+        }
+      }
+      for (let index = 0; index < newObj.length; index++) {
+        console.log(newObj[index].id);
+        const element = newObj[index];
         let template = $("#price_template").html();
         for (const key in element) {
           template = template.replace("{" + key + "}", element[key]);
@@ -50,7 +62,6 @@ $(() => {
       }
     });
   });
-
   function clickedFilter(priceArr, colorArr, sizeArr, name) {
     var urlArr = [];
     var colorNames = ["black", "white", "red", "blue", "green"];
@@ -71,7 +82,7 @@ $(() => {
         checkCounter++;
         var min = (parseInt(priceArr[i].id.split("-")[1]) - 1) * 100;
         var max = parseInt(priceArr[i].id.split("-")[1]) * 100 - 1;
-        var tempURL = `http://localhost:8080/pricefilter1?min=${min}&&max=${max}&&color[]=${checkedColors}&&size[]=${checkedSizes}&&name=${name}`;
+        var tempURL = `http://localhost:8080/filter?min=${min}&&max=${max}&&color[]=${checkedColors}&&size[]=${checkedSizes}&&name=${name}`;
         urlArr.push(tempURL);
       }
     }
@@ -92,7 +103,7 @@ $(() => {
         });
       }
     } else {
-      var url = `http://localhost:8080/pricefilter1?min=0&&max=1000000000&&color[]=${checkedColors}&&size[]=${checkedSizes}&&name=${name}`;
+      var url = `http://localhost:8080/filter?min=0&&max=1000000000&&color[]=${checkedColors}&&size[]=${checkedSizes}&&name=${name}`;
       $.ajax({
         url: url,
       }).done(function (obj) {
@@ -111,21 +122,11 @@ $(() => {
   var prices = [];
   var colors = [];
   var sizes = [];
-  prices.push(document.getElementById("price-1"));
-  prices.push(document.getElementById("price-2"));
-  prices.push(document.getElementById("price-3"));
-  prices.push(document.getElementById("price-4"));
-  prices.push(document.getElementById("price-5"));
-  colors.push(document.getElementById("color-1"));
-  colors.push(document.getElementById("color-2"));
-  colors.push(document.getElementById("color-3"));
-  colors.push(document.getElementById("color-4"));
-  colors.push(document.getElementById("color-5"));
-  sizes.push(document.getElementById("size-1"));
-  sizes.push(document.getElementById("size-2"));
-  sizes.push(document.getElementById("size-3"));
-  sizes.push(document.getElementById("size-4"));
-  sizes.push(document.getElementById("size-5"));
+  for (var i = 1; i <= 5; i++) {
+    prices.push(document.getElementById(`price-${i}`));
+    colors.push(document.getElementById(`color-${i}`));
+    sizes.push(document.getElementById(`size-${i}`));
+  }
   $("#inp_search").keyup(() => {
     clickedFilter(prices, colors, sizes, $("#inp_search").val());
   });

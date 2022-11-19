@@ -1,5 +1,4 @@
-const proDB = require("../models/products");
-const progh=  require("../models/products");
+const progh = require("../models/products");
 
 async function pie(req, res) {
   progh.find().then((data) =>
@@ -9,7 +8,4 @@ async function pie(req, res) {
   );
 }
 
-
-
-
-module.exports = { pie};
+module.exports = { pie };

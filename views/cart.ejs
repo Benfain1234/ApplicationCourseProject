@@ -97,7 +97,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a  href="/" class="nav-item nav-link">Home</a>
+                            <a href="/" class="nav-item nav-link">Home</a>
                             <a href="shop" class="nav-item nav-link">Shop</a>
 
                             <div class="nav-item dropdown">
@@ -154,7 +154,8 @@
                                 <td class="align-middle"><img src="<%= cart[i].src %>" alt="" style="width: 50px;">
                                     <%= cart[i].title %>
                                 </td>
-                                <td class="align-middle" id="price<%= cart[i].id %>">$<%= cart[i].price %>></td>
+                                <td class="align-middle" id="price<%= cart[i].id %>">$<%= cart[i].price %>
+                                </td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn" id="decreaseProd">
@@ -165,14 +166,16 @@
                                         <input type="text" id="num<%= cart[i].id %>"
                                             class="form-control form-control-sm bg-secondary text-center"
                                             value="<%= cart[i].quantity %>">
-                                        <div class="input-group-btn" id="RiseProd">
+                                        <div class="input-group-btn" id="increaseProd">
                                             <button class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">$150</td>
+                                <td class="align-middle" id="totalPrice<%= cart[i].id %>">$<%= cart[i].price *
+                                        cart[i].quantity %>
+                                </td>
                                 <td class="align-middle">
                                     <a id="removeProd"><button class="btn btn-sm btn-primary"><i
                                                 class="fa fa-times"></i></button></a>
@@ -185,7 +188,7 @@
             <div class="col-lg-4">
                 <form class="mb-5" action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" p-4" placeholder="Coupon Code">
+                        <input type="text" class="form-control p-4" placeholder="Coupon Code">
                         <div class="input-group-append">
                             <button class="btn btn-primary">Apply Coupon</button>
                         </div>
@@ -333,14 +336,14 @@
                         </div>
                         <input type="text" id="num{id}" class="form-control form-control-sm bg-secondary text-center"
                         value="{quantity}">
-                        <div class="input-group-btn" id="RiseProd">
+                        <div class="input-group-btn" id="increaseProd">
                             <button class="btn btn-sm btn-primary btn-plus">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
             </td>
-            <td class="align-middle">{price}</td>
+            <td class="align-middle" id="totalPrice{id}">{price}</td>
             <td class="align-middle">
                 <a id="removeProd"><button class="btn btn-sm btn-primary"><i
                             class="fa fa-times"></i></button></a>

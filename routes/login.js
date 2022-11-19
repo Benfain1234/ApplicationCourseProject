@@ -1,13 +1,14 @@
+const { application } = require("express");
 const express = require("express");
 const loginController = require("../controllers/login");
 const router = express.Router();
 
-router.get("/login", loginController.Login);
-router.post("/loginToUser", loginController.LoginToUser);
-router.get("/telaviv", loginController.FindTelAviv);
-router.get("/batyam", loginController.FindBatYam);
-router.get("/rishon", loginController.FindRishon);
+router.get("/login", loginController.login);
+router.post("/loginToUser", loginController.loginToUser);
+router.get("/telaviv", loginController.findtelaviv);
+router.get("/batyam", loginController.findbatyam);
+router.get("/rishon", loginController.findrishon);
 router.get("/Logout", loginController.Logout);
-router.get("/isConnect", loginController.IsConnect);
+router.get("/isConnect", loginController.isConnect);
 
 module.exports = router;

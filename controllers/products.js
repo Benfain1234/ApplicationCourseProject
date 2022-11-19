@@ -1,8 +1,7 @@
 const proDB = require("../models/products");
 const cart = require("../models/cart");
-
-
-function Index(req, res, next) {
+const addproduct = require("../services/products");
+function index(req, res, next) {
   if (req.session.username != null) next();
   else {
     proDB.find().then((data) =>
@@ -13,10 +12,8 @@ function Index(req, res, next) {
       })
     );
   }
-  
-  
 }
-async function SessionFunc(req, res) {
+async function sessionfunc(req, res) {
   proDB.find().then((data) =>
     res.render("index.ejs", {
       User_Name: req.session.username,
@@ -25,4 +22,4 @@ async function SessionFunc(req, res) {
     })
   );
 }
-module.exports = { Index, SessionFunc };
+module.exports = { index, sessionfunc };
