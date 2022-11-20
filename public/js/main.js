@@ -102,7 +102,31 @@ function decreaseClick(id) {
     $("#cartVal").html(`${cartVal - 1}`);
   });
 }
-
+function RiseClick(id) {
+  $.ajax({
+    url: `http://localhost:8080/addProduct?id=${id}`,
+  }).done(function (obj) {
+    let prod = document.getElementById("prodList");
+    let elem = document.getElementById(id);
+    const currPrice = parseInt(
+      document.getElementById(`price${id}`).innerText.slice(1)
+    );
+    var numOfProds = document.getElementById(`num${id}`).value;
+    console.log(numOfProds);
+    if (parseInt(numOfProds) == 0) {
+      prod.Child(elem);
+    } else {
+      numOfProds = parseInt(numOfProds) + 1;
+    }
+    var subT = parseInt(document.getElementById("subTotal").innerText.slice(1));
+    var subTotal = subT + currPrice;
+    var total = subTotal + 10;
+    $("#subTotal").html(`$${subTotal}`);
+    $("#total").html(`$${total}`);
+    var cartVal = parseInt(document.getElementById("cartVal").innerText);
+    $("#cartVal").html(`${cartVal + 1}`);
+  });
+}
 $(() => {
   var s = io();
   s.on("userCnt", (msg) => {
@@ -122,6 +146,15 @@ $(() => {
     const id = cartList[i].parentElement.parentElement.parentElement.id;
     cartList[i].addEventListener("click", function () {
       decreaseClick(id);
+    });
+  }
+});
+$(() => {
+  var cartList = document.querySelectorAll("#RiseProd");
+  for (var i = 0; i < cartList.length; i++) {
+    const id = cartList[i].parentElement.parentElement.parentElement.id;
+    cartList[i].addEventListener("click", function () {
+      RiseClick(id);
     });
   }
 });

@@ -11,6 +11,7 @@ function Admin(req, res) {
       amount: cart.totalProds(),
     })
   );
+  
 }
 function RegisterProduct(req, res) {
   servicesProd.addProduct(

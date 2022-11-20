@@ -13,6 +13,8 @@ function Index(req, res, next) {
       })
     );
   }
+  
+  
 }
 async function SessionFunc(req, res) {
   proDB.find().then((data) =>

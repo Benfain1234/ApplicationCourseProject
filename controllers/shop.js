@@ -11,6 +11,7 @@ function Shop(req, res) {
       amount: cart.totalProds(),
     })
   );
+  
 }
 function PriceFilter1(req, res) {
   proDB

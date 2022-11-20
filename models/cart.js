@@ -34,6 +34,7 @@ function decreaseProduct(id) {
   }
 }
 
+
 function removeProduct(id) {
   var p = cart.find((c) => c.id == id);
   if (p !== null) cart.splice(cart.indexOf(p), 1);
