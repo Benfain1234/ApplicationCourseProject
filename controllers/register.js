@@ -2,13 +2,13 @@ const registerServices = require("../services/register");
 const proDB = require("../models/products");
 const cart = require("../models/cart");
 
-function Register(req, res) {
+function register(req, res) {
   res.render("register.ejs", {
     explanation: "Register our system to enjoy more content",
   });
 }
 
-function AddUser(req, res) {
+function addUser(req, res) {
   let valid = true;
   if (req.body.email == "") {
     valid = false;
@@ -70,4 +70,4 @@ function AddUser(req, res) {
   }
 }
 
-module.exports = {  Register,  AddUser };
+module.exports = { register, addUser };

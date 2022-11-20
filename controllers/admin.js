@@ -3,7 +3,7 @@ const adminServices = require("../services/admin");
 const servicesProd = require("../services/products");
 const cart = require("../models/cart");
 
-function Admin(req, res) {
+function admin(req, res) {
   proDB.find().then((data) =>
     res.render("admin.ejs", {
       products: data,
@@ -11,9 +11,8 @@ function Admin(req, res) {
       amount: cart.totalProds(),
     })
   );
-  
 }
-function RegisterProduct(req, res) {
+function registerProduct(req, res) {
   servicesProd.addProduct(
     req.query.title,
     req.query.desc,
@@ -24,11 +23,13 @@ function RegisterProduct(req, res) {
     req.query.src
   );
   proDB.find().then((data) => {
-    res.redirect("/admin");
+    setTimeout(() => {
+      res.redirect("/admin");
+    }, 1000);
   });
 }
 
-function UpdateProduct(req, res) {
+function updateProduct(req, res) {
   console.log(req);
   proDB.findOne({ id: req.query.id }).then((prod) => {
     const query = req.query;
@@ -48,28 +49,28 @@ function UpdateProduct(req, res) {
   });
 }
 
-function AddAdmin(req, res) {
+function addAdmin(req, res) {
   adminServices.addAdmin(req.query.email);
   res.redirect("/login");
 }
 
-function GetProducts(req, res) {
+function getProducts(req, res) {
   proDB.find().then((data) => {
     res.json(data);
   });
 }
 
-function DropProduct(req, res) {
+function dropProduct(req, res) {
   servicesProd.removeProduct(req.query.id);
   proDB.find().then((data) => {
     res.json(data);
   });
 }
 module.exports = {
-  Admin,
-  RegisterProduct,
-  DropProduct,
-  GetProducts,
-  AddAdmin,
-  UpdateProduct,
+  admin,
+  registerProduct,
+  dropProduct,
+  getProducts,
+  addAdmin,
+  updateProduct,
 };

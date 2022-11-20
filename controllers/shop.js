@@ -1,9 +1,9 @@
 const proDB = require("../models/products");
 const cart = require("../models/cart");
 const shopModel = require("../models/shop");
+const products = require("../models/products");
 
-
-function Shop(req, res) {
+function shop(req, res) {
   proDB.find().then((data) =>
     res.render("shop.ejs", {
       products: data,
@@ -11,9 +11,8 @@ function Shop(req, res) {
       amount: cart.totalProds(),
     })
   );
-  
 }
-function PriceFilter1(req, res) {
+function filter(req, res) {
   proDB
     .find({ price: { $gte: req.query.min, $lte: req.query.max } })
     .then((data) => {
@@ -56,41 +55,7 @@ function PriceFilter1(req, res) {
     });
 }
 
-function ColorFilter(req, res) {
-  proDB.find({ color: req.query.color }).then((data) => {
-    res.json(data);
-  });
-}
-
-function SearchProd(req, res) {
-  const regx = req.query.prodName;
-  proDB
-    .find({
-      $or: [
-        { title: new RegExp(regx) },
-        { desc: new RegExp(regx) },
-        { color: new RegExp(regx) },
-      ],
-    })
-    .then((data) => {
-      console.log(data);
-      res.json(data);
-    });
-}
-
-function SizeFilter(req, res) {
-  proDB.find({ size: req.query.size }).then((data) => {
-    res.json(data);
-  });
-}
-
-async function SearchProduct(req, res) {
-  res.render("products.ejs", {
-    products: await shopModel.SearchProduct(req.body.filter, req.body.value),
-  });
-}
-
-async function SortByPrice(req, res) {
+async function sortByPrice(req, res) {
   proDB.find().then((data) => {
     let sortedProducts = data.sort((p1, p2) =>
       p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
@@ -100,11 +65,7 @@ async function SortByPrice(req, res) {
 }
 
 module.exports = {
-  Shop,
-  PriceFilter1,
-  ColorFilter,
-  SizeFilter,
-  SearchProd,
-  SearchProduct,
-  SortByPrice,
+  shop,
+  filter,
+  sortByPrice,
 };

@@ -2,7 +2,7 @@ const checkoutModel = require("../models/checkout");
 const cart = require("../models/cart");
 Users = require("../models/login");
 
-function Checkout(req, res) {
+function checkout(req, res) {
   Users.findOne({ id: req.session.id }).then((user) => {
     res.render("checkout.ejs", {
       user: user,
@@ -13,4 +13,4 @@ function Checkout(req, res) {
   });
 }
 
-module.exports = { Checkout };
+module.exports = { checkout };

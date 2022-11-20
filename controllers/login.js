@@ -4,7 +4,7 @@ const proDB = require("../models/products");
 const adminDB = require("../models/admin");
 const mapDB = require("../models/maps");
 
-function Login(req, res) {
+function login(req, res) {
   res.render("login.ejs", {
     explanation:
       "Our users can see more products and get notification about new products",
@@ -12,7 +12,7 @@ function Login(req, res) {
   });
 }
 
-function LoginToUser(req, res) {
+function loginToUser(req, res) {
   adminDB
     .findOne({ email: req.body.email, password: req.body.password })
     .then((admin) => {
@@ -26,7 +26,6 @@ function LoginToUser(req, res) {
             products: data,
             amount: cart.totalProds(),
           });
-          
         });
       } else if (!admin) {
         Users.findOne({
@@ -50,7 +49,7 @@ function LoginToUser(req, res) {
     });
 }
 
-async function FindTelAviv(req, res) {
+async function findtelaviv(req, res) {
   mapDB.find({ Name: "Tel-Aviv" }).then((data) => {
     res.render("map.ejs", {
       cityname: data[0].Name,
@@ -58,7 +57,7 @@ async function FindTelAviv(req, res) {
     });
   });
 }
-async function FindBatYam(req, res) {
+async function findbatyam(req, res) {
   mapDB.find({ Name: "Bat-Yam" }).then((data) => {
     res.render("map.ejs", {
       cityname: data[0].Name,
@@ -67,7 +66,7 @@ async function FindBatYam(req, res) {
   });
 }
 
-async function FindRishon(req, res) {
+async function findrishon(req, res) {
   mapDB.find({ Name: "Rishon-Lezion" }).then((data) => {
     res.render("map.ejs", {
       cityname: data[0].Name,
@@ -75,7 +74,7 @@ async function FindRishon(req, res) {
     });
   });
 }
-function IsConnect(req, res) {
+function isConnect(req, res) {
   if (req.session.username != null) {
     res.json(true);
   } else {
@@ -89,11 +88,11 @@ function Logout(req, res) {
   });
 }
 module.exports = {
-  Login,
-  LoginToUser,
-  FindTelAviv,
-  FindBatYam,
-  FindRishon,
+  login,
+  loginToUser,
+  findtelaviv,
+  findbatyam,
+  findrishon,
   Logout,
-  IsConnect,
+  isConnect,
 };

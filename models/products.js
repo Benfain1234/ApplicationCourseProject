@@ -1,3 +1,4 @@
+//const { all } = require("../routes/products");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
